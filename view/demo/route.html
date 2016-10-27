@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ngRouteExample" ng-controller="ctrl">
+<head>
+	<meta charset="UTF-8">
+	<title>路由</title>
+	<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/css/app.css"></head>
+<body>
+	<!-- 确认提示框 -->
+	<div ng-include="'/template/nav.html'"></div>
+
+	<div class="container-fluid">
+		<ul class="nav nav-tabs">
+			<li class="active">
+				<a href="#/table">表格</a>
+			</li>
+			<li>
+				<a href="#/form">表单</a>
+			</li>
+		</ul>
+		<!-- Table -->
+		<div ng-view></div>
+	</div>
+	
+	<!-- 确认提示框 -->
+	<div ng-include="'/template/confirm.html'"></div>
+
+	<script src="/node_modules/angular/angular.min.js"></script>
+	<script src="/node_modules/angular-route/angular-route.min.js"></script>
+	<script src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+	<script src="/static/js/app.js"></script>
+	<script type="text/javascript">
+		angular.module('ngRouteExample', ['ngRoute','ui.bootstrap'])
+		.controller('ctrl', function ($scope, $route) { $scope.$route = $route;})
+		.controller('form', function ($scope, $route) { $scope.$route = $route;})
+		.controller('table', function($scope, $http, $timeout) {
+			$http.get("http://m.jiajuol.com/partner/weixin/subject/subject_list.php").success(function(response) {
+				$scope.data = response.data;
+				$scope.tableShow = true;
+				$timeout(function(){
+					$scope.loadingHide = true;
+				},200)
+				$scope.del=function(opt){
+					$scope.confirm_info='确定要删除 '+opt.subject+' ？';
+					$('#confirm').modal('show');
+				}
+				$scope.confirm_ok=function(opt){
+					$('#confirm').modal('hide');
+				}
+				$scope.maxSize = 4;
+				$scope.bigTotalItems = 100;
+				$scope.bigCurrentPage = 1;
+				$scope.totalItems = 100;
+			});
+		})
+		.config(['$routeProvider', function($routeProvider){
+		    $routeProvider
+		        .when('/table',{
+		        	templateUrl:"table.html",
+		        	controller:"table"
+		       	})
+		        .when('/form',{
+		        	templateUrl:"form.html",
+		        	controller:"form"
+		       	})
+		        .otherwise({redirectTo:'/table'});
+		}]);
+	</script>
+</body>
+</html>

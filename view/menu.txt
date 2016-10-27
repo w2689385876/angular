@@ -1,0 +1,278 @@
+<!-- <div class="container-fluid">
+		<div class="container">
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">系统管理</div>
+					<div class="panel-body">
+						<ul>
+							<li>
+								<a href="#">系统设置</a>
+							</li>
+							<li>
+								<a href="#">组织架构</a>
+								<ul>
+									<li>
+										<a href="#">分公司管理</a>
+									</li>
+									<li>
+										<a href="#">部门管理</a>
+									</li>
+									<li>
+										<a href="#" class="text-danger">岗位管理</a>
+									</li>
+									<li>
+										<a href="#">人员管理</a>
+										<ul>
+											<li>
+												<a href="#">A6总经理/副总经理</a>
+											</li>
+											<li>
+												<a href="#">A6总监</a>
+											</li>
+											<li>
+												<a href="#">A经理</a>
+											</li>
+											<li>
+												<a href="#">分总</a>
+											</li>
+											<li>
+												<a href="#">客服</a>
+											</li>
+											<li>
+												<a href="#">电商客服</a>
+											</li>
+											<li>
+												<a href="#">市电</a>
+											</li>
+											<li>
+												<a href="#">客户经理</a>
+											</li>
+											<li>
+												<a href="#">设计师</a>
+											</li>
+											<li>
+												<a href="#">项目经理</a>
+											</li>
+											<li>
+												<a href="#">项目监理</a>
+											</li>
+											<li>
+												<a href="#">现场负责人</a>
+											</li>
+											<li>
+												<a href="#">客服</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">帐号管理</a>
+									</li>
+									<li>
+										<a href="#">权限管理</a>
+									</li>
+									<li>
+										<a href="#">分派单流程</a>
+									</li>
+									<li>
+										<a href="#">售后流程</a>
+									</li>
+									<li>
+										<a href="#">客诉流程</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">流程管理</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">客户管理</div>
+					<div class="panel-body">
+						<ul>
+							<li>
+								<a href="#">客户信息管理</a>
+							</li>
+							<li>
+								<a href="#">客户关怀</a>
+							</li>
+							<li>
+								<a href="#">客户分析</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">客户评价</div>
+					<div class="panel-body">
+						<ul>
+							<li>
+								<a href="#">客户反馈</a>
+							</li>
+							<li>
+								<a href="#">客户投诉</a>
+							</li>
+							<li>
+								<a href="#">评价分析</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">会员管理</div>
+					<div class="panel-body">
+						<ul>
+							<li>
+								<a href="#">星级</a>
+							</li>
+							<li>
+								<a href="#">积分</a>
+							</li>
+							<li>
+								<a href="#">权益</a>
+							</li>
+							<li>
+								<a href="#">分析</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">系统集成</div>
+					<div class="panel-body">
+						<ul>
+							<li>
+								<a href="#">HDS系统</a>
+							</li>
+							<li>
+								<a href="#">SRM系统</a>
+							</li>
+							<li>
+								<a href="#">IM</a>
+							</li>
+							<li>
+								<a href="#">支付平台</a>
+							</li>
+							<li>
+								<a href="#">callcenter</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">分析决策管理</div>
+					<div class="panel-body">
+						<ul>
+							<li>
+								<a href="#">各类报表</a>
+							</li>
+							<li>
+								<a href="#">管理驾驶舱</a>
+							</li>
+							<li>
+								<a href="#">大数据辅助业务</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">市场管理</div>
+					<div class="panel-body">
+						<ul>
+							<li>
+								<a href="#">楼盘管理</a>
+								<ul>
+									<li>
+										<a href="#">别墅</a>
+									</li>
+									<li>
+										<a href="#">阿米巴</a>
+									</li>
+									<li>
+										<a href="#">一般小区</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">市场调研及分析</a>
+								<ul>
+									<li>
+										<a href="#">网络排查</a>
+									</li>
+									<li>
+										<a href="#">市拓扫盘</a>
+									</li>
+									<li>
+										<a href="#">重点筛查</a>
+									</li>
+									<li>
+										<a href="#">目标策略制定</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">竞品调研及分析</a>
+							</li>
+							<li>
+								<a href="#">市场计划</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">营销管理</div>
+					<div class="panel-body">
+						<ul>
+							<li>
+								<a href="#">渠道管理</a>
+							</li>
+							<li>
+								<a href="#">营销活动管理</a>
+							</li>
+							<li>
+								<a href="#">渠道运营管理</a>
+							</li>
+							<li>
+								<a href="#">线索管理</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">服务管理</div>
+					<div class="panel-body">
+						<ul>
+							<li>
+								<a href="#">合同档案管理</a>
+							</li>
+							<li>
+								<a href="#">协议档案管理</a>
+							</li>
+							<li>
+								<a href="#">产品档案管理</a>
+							</li>
+							<li>
+								<a href="#">设计图件管理</a>
+							</li>
+							<li>
+								<a href="#">订单管理</a>
+							</li>
+							<li>
+								<a href="#">工程管理</a>
+							</li>
+							<li>
+								<a href="#">售后管理</a>
+							</li>
+							<li>
+								<a href="#">客服管理</a>
+							</li>
+							<li>
+								<a href="#">服务质量管理</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->

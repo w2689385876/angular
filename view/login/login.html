@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台管理系统</title>
+	<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/css/app.css">
+	<script>
+  if(top != self){
+     top.location.href=window.location.href;
+  }
+</script>
+</head>
+<body>
+	<div class="login">
+		<form class="form-signin" action="login.php" method="post">
+			<div class="panel panel-default">
+				<div class="panel-heading">东易日盛CRM管理系统</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon"> <i class="glyphicon glyphicon-user"></i>
+							</div>
+							<input type="text" name="userid" class="form-control" placeholder="用户名" required autofocus></div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon"> <i class="glyphicon glyphicon-lock"></i>
+							</div>
+							<input type="password" name="passwd" class="form-control" placeholder="密码" required></div>
+					</div>
+					<div class="form-group">
+						<input type="hidden" name="action" value="login">
+						<button class="btn btn-primary btn-block" type="submit">登录</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="/static/js/app.js"></script>
+</body>
+</html>

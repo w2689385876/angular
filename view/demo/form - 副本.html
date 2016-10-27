@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台管理系统</title>
+	<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/css/app.css"></head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">东易日盛CRM管理系统</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							admin
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li>
+								<a href="#">退出</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<ol class="breadcrumb">
+			<li>
+				<a href="#">Home</a>
+			</li>
+			<li>
+				<a href="#">Library</a>
+			</li>
+			<li class="active">Data</li>
+		</ol>
+		<ul class="nav nav-tabs" role="tablist">
+			<li>
+				<a href="index.html">导航</a>
+			</li>
+			<li>
+				<a href="table.html">表格</a>
+			</li>
+			<li class="active">
+				<a href="form.html">表单</a>
+			</li>
+		</ul>
+		<!-- form -->
+		<div class="box">
+			<div class="box-body">
+				<div class="container">
+					<form class="form-horizontal">
+						<div class="form-group has-error has-feedback">
+							<label class="col-sm-2 control-label"><i class="bitian">*</i> 标题</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" placeholder="提示">
+								<div class="help-block">错误提示</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label"><i class="bitian">*</i> 特殊表单</label>
+							<div class="col-sm-10">
+								<div class="input-group">
+		                            <input type="text" class="form-control" placeholder="提示">
+		                            <div class="input-group-addon">㎡</div>
+		                        </div>
+								<div class="help-block">错误提示</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label  class="col-sm-2 control-label"><i class="bitian">*</i> Password</label>
+							<div class="col-sm-10">
+								<input type="password" class="form-control" placeholder="提示"></div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">复选框</label>	
+							<div class="col-sm-10">
+									<label class="checkbox-inline"><input type="checkbox">复选框</label>
+									<label class="checkbox-inline"><input type="checkbox">复选框</label>
+									<label class="checkbox-inline"><input type="checkbox">复选框</label>
+									<label class="checkbox-inline"><input type="checkbox">复选框</label>
+									<label class="checkbox-inline"><input type="checkbox">复选框</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">单选框</label>	
+							<div class="col-sm-10">
+									<label class="radio-inline"><input type="radio" name="a">单选</label>
+									<label class="radio-inline"><input type="radio" name="a">单选</label>
+									<label class="radio-inline"><input type="radio" name="a">单选</label>
+									<label class="radio-inline"><input type="radio" name="a">单选</label>
+									<label class="radio-inline"><input type="radio" name="a">单选</label>
+									<label class="radio-inline"><input type="radio" name="a">单选</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">文本域</label>	
+							<div class="col-sm-10">
+									<textarea name="" class="form-control" placeholder="提示"></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-primary">提交</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/node_modules/angular/angular.min.js"></script>
+	<script src="/static/js/app.js"></script>
+</body>
+</html>
