@@ -37,11 +37,8 @@
 					<td ng-bind="x.designer_name"></td>
 					<td class="text-center">
 						<div class="btn-group">
-							<a href="#" class="btn btn-default btn-sm" title="修改"> <i class="glyphicon glyphicon-pencil"></i>
-							</a>
-							<a href="#" class="btn btn-default btn-sm" title="删除" ng-click="del(x)">
-								<i class="glyphicon glyphicon-trash"></i>
-							</a>
+							<button type="button" class="btn btn-default btn-sm" ng-click="open()"><i class="glyphicon glyphicon-pencil"></i></button>
+							<button type="button" class="btn btn-default btn-sm" ng-click="open()"><i class="glyphicon glyphicon-trash"></i></button>
 						</div>
 					</td>
 				</tr>
@@ -52,11 +49,10 @@
 		<div class="row">
 			<div class="col-xs-4"></div>
 			<div class="col-xs-8 form-inline text-right">
-			<ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" num-pages="numPages" boundary-link-numbers="true"></ul>
-			<pre>Page: {{bigCurrentPage}} / {{numPages}}</pre>
-		</div>
+				<ul uib-pagination total-items="bigTotalItems" items-per-page="itemsPerPage" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" num-pages="numPages" boundary-link-numbers="true" previous-text="上一页" next-text="下一页"></ul>
+				Page: {{bigCurrentPage}} / {{numPages}}
+			</div>
 	</div>
 </div>
 <!-- 加载loading -->
 <div ng-hide="loadingHide" ng-include="'/template/loading.html'"></div>
-</div>

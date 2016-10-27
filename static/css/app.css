@@ -7,8 +7,9 @@ body{background: #F1F4F6;}
 .navbar-default .navbar-brand,.navbar-default .navbar-brand:hover{width:230px;background: #353644;color:#fff;}
 /*字体颜色重置*/
 .text-danger{color:#f00;}
+
 /*面包屑导航*/
-.breadcrumb{background: #fff;}
+.breadcrumb{background: #fff;margin-top: 15px;}
 
 .dropdown:hover>.dropdown-menu{display: block;}
 
@@ -52,7 +53,7 @@ body{background: #F1F4F6;}
 	.navbar:after{margin:0;}
 	.navbar-default .navbar-brand,.navbar-default .navbar-brand:hover{background: #f8f8f8;color:#666;}
 	.content{padding:0;}
-	.content .AreaL{width:auto;height:auto;float:none;margin:0;background: #fff;border-bottom:solid 1px #ddd;position: fixed;top:50px;width: 100%;max-height:200px;overflow-y: auto;padding:10px;}
+	.content .AreaL{width:auto;height:auto;float:none;margin:0;background: #fff;border-bottom:solid 1px #ddd;position: fixed;top:50px;width: 100%;max-height:200px;overflow-y: auto;padding:10px;z-index: 10;}
 	.loginInfo{display: block;}
 	.content.false .AreaL{display: none;}
 	.content .AreaR{padding: 10px;}
