@@ -1,0 +1,4 @@
+http://angular-ui.github.io/bootstrap/
+https://github.com/angular-ui/bootstrap/
+https://docs.angularjs.org/api/ng/type/$rootScope.Scope
+https://github.com/angular-ui/ui-router

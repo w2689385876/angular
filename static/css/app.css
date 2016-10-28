@@ -48,7 +48,7 @@ body{background: #F1F4F6;}
 .sidebar-menu .header{color:#6e6f7e;line-height: 30px;padding-top:20px;font-size: 12px;}
 .sidebar-menu,.sidebar-menu ul{ padding: 0;}
 .sidebar-menu li{list-style: none;line-height: 25px;padding:0 0 0 2em;}
-.sidebar-menu a{color:#c0c1c4;}
+.sidebar-menu a{color:#c0c1c4;text-decoration: none;}
 @media (max-width:767px) {
 	.navbar:after{margin:0;}
 	.navbar-default .navbar-brand,.navbar-default .navbar-brand:hover{background: #f8f8f8;color:#666;}

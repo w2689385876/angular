@@ -1,8 +1,9 @@
 <ul class="nav nav-tabs">
-	<li class="active">
-		<a ui-sref="table">表格</a>
+	<li class="{{$root.subPageCur.isTable}}">
+		<a ui-sref="demo.table">表格</a>
 	</li>
-	<li>
-		<a ui-sref="form">表单</a>
+	<li class="{{$root.subPageCur.isForm}}">
+		<a ui-sref="demo.form">表单</a>
 	</li>
 </ul>
+<div ui-view></div>

@@ -10,58 +10,10 @@
 	<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/static/css/app.css"></head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" ng-click="toggleMenu()">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<div class="navbar-brand" href="#">东易日盛CRM管理系统</div>
-			</div>
-
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							admin
-							<span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu" role="menu">
-							<li>
-								<a href="#">退出</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
+	<div ng-include="'/template/nav.html'"></div>
 	<div class="content {{menuShow}}">
 		<div class="AreaL">
-			<p class="loginInfo">
-				admin
-				<a href="#">退出系统</a>
-			</p>
-			<ul class="sidebar-menu">
-				<li class="header">菜单</li>
-				<li class="treeview">
-					<a href="#">
-						<span>模版文件</span>
-					</a>
-					<ul class="treeview-menu">
-						<li>
-							<a href="#/table">table</a>
-						</li>
-						<li>
-							<a href="#/form">form</a>
-						</li>
-					</ul>
-				</li>
-			</ul>
+			<div ng-include="'/template/menu.html'"></div>
 		</div>
 		<div class="AreaR">
 			<ol class="breadcrumb">
@@ -72,81 +24,9 @@
 			<div ui-view></div>
 		</div>
 	</div>
-
 	<script src="/node_modules/angular/angular.min.js"></script>
 	<script src="../node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
-	<script src="/static/js/app.js"></script>
-	<script type="text/javascript">
-	angular.module('app', ['ui.router','ui.bootstrap'])
-		//主控制器
-		.controller('ctrl', function ($scope) {
-			$scope.menuShow=false;
-			$scope.toggleMenu = function(){
-				$scope.menuShow=!$scope.menuShow;
-			};
-			$scope.menuOpen=function(e){
-				console.log(e)
-			}
-		})
-		//表单页面
-		.controller('form', function ($scope, $route) {
-
-		})
-		//列表页面
-		.controller('table', function($scope, $http, $timeout,$uibModal, $log, $document) {
-			$http.get("http://m.jiajuol.com/partner/weixin/subject/subject_list.php").success(function(response) {
-				$scope.data = response.data;
-				$scope.tableShow = true;
-				$timeout(function(){
-					$scope.loadingHide = true;
-				},200)
-				$scope.del=function(opt){
-					$scope.confirm_info='确定要删除 '+opt.subject+' ？';
-					$('#confirm').modal('show');
-				}
-				$scope.confirm_ok=function(opt){
-					$('#confirm').modal('hide');
-				}
-				$scope.maxSize = 4;
-				$scope.bigTotalItems = 100;
-				$scope.bigCurrentPage = 1;
-				$scope.totalItems = 100;
-				$scope.itemsPerPage = 20;
-			});
-		})
-		//路由配置
-		// .config(['$routeProvider', function($routeProvider){
-		//     $routeProvider
-		//         .when('/table',{
-		//         	templateUrl:"demo/table.html",
-		//         	controller:"table"
-		//        	})
-		//        	.when('/index',{
-		//        		template:"<h1>欢迎登录CRM管理系统</h1>"
-		//        	})
-		//         .when('/form',{
-		//         	templateUrl:"demo/form.html",
-		//         	controller:"form"
-		//        	})
-		//         .otherwise({redirectTo:'/index'});
-		// }]);
-		.config(function($stateProvider,$urlRouterProvider){
-			$urlRouterProvider.otherwise('/home');
-			$stateProvider.state("main",{
-				url: '/home',
-				template:"<h1>欢迎登录CRM管理系统</h1>"
-			})
-			.state('table',{
-				url: '/table',
-				templateUrl: 'demo/table.html',
-				controller:"table"
-			})
-			.state('form',{
-				url: '/form',
-				templateUrl: 'demo/form.html'
-			});
-		})
-	</script>
+	<script src="/static/js/router.js"></script>
 </body>
 </html>

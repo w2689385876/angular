@@ -1,4 +1,3 @@
-<div ng-include="'/view/demo/tab.html'"></div>
 <div class="box">
 	<div class="box-header">
 		<div id="form" class="form-inline">
@@ -37,8 +36,11 @@
 					<td ng-bind="x.designer_name"></td>
 					<td class="text-center">
 						<div class="btn-group">
-							<button type="button" class="btn btn-default btn-sm" ng-click="open()"><i class="glyphicon glyphicon-pencil"></i></button>
-							<button type="button" class="btn btn-default btn-sm" ng-click="open()"><i class="glyphicon glyphicon-trash"></i></button>
+							<button type="button" class="btn btn-default btn-sm" ng-click="open()"> <i class="glyphicon glyphicon-pencil"></i>
+							</button>
+							<button type="button" class="btn btn-default btn-sm" ng-click="open()">
+								<i class="glyphicon glyphicon-trash"></i>
+							</button>
 						</div>
 					</td>
 				</tr>
@@ -52,7 +54,9 @@
 				<ul uib-pagination total-items="bigTotalItems" items-per-page="itemsPerPage" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" num-pages="numPages" boundary-link-numbers="true" previous-text="上一页" next-text="下一页"></ul>
 				Page: {{bigCurrentPage}} / {{numPages}}
 			</div>
+		</div>
 	</div>
+
+	<!-- 加载loading -->
+	<div ng-hide="loadingHide" ng-include="'/template/loading.html'"></div>
 </div>
-<!-- 加载loading -->
-<div ng-hide="loadingHide" ng-include="'/template/loading.html'"></div>
