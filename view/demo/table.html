@@ -38,7 +38,7 @@
 						<div class="btn-group">
 							<button type="button" class="btn btn-default btn-sm" ng-click="open()"> <i class="glyphicon glyphicon-pencil"></i>
 							</button>
-							<button type="button" class="btn btn-default btn-sm" ng-click="open()">
+							<button type="button" class="btn btn-default btn-sm" ng-click="del({data:x,controller:'delDate'})">
 								<i class="glyphicon glyphicon-trash"></i>
 							</button>
 						</div>
@@ -49,14 +49,18 @@
 	</div>
 	<div class="box-footer">
 		<div class="row">
-			<div class="col-xs-4"></div>
+			<div class="col-xs-4">
+			<button class="btn btn-default">按钮</button>
+			</div>
 			<div class="col-xs-8 form-inline text-right">
-				<ul uib-pagination total-items="bigTotalItems" items-per-page="itemsPerPage" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" num-pages="numPages" boundary-link-numbers="true" previous-text="上一页" next-text="下一页"></ul>
-				Page: {{bigCurrentPage}} / {{numPages}}
+				
 			</div>
 		</div>
 	</div>
-
+	
 	<!-- 加载loading -->
-	<div ng-hide="loadingHide" ng-include="'/template/loading.html'"></div>
+	<div ng-show="loadingShow" ng-include="'/template/loading.html'"></div>
+</div>
+<div class="text-center">
+	<ul uib-pagination total-items="page.totalItems" items-per-page="page.itemsPerPage" ng-change="page.pageChange()" ng-model="page.currentPage" max-size="page.maxSize" class="pagination-sm" num-pages="page.numPages" boundary-link-numbers="true" previous-text="上一页" next-text="下一页"></ul>
 </div>
