@@ -55,17 +55,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
     .state("demo", {
         url:"/demo",
-        templateUrl:"demo/tab.html"
+        templateUrl:"view/demo/tab.html"
     })
     .state("demo.table", {
         url:"/table",
-        templateUrl:"demo/table.html",
+        templateUrl:"view/demo/table.html",
         controller:"demoList"
     })
     
     .state("demo.form", {
         url:"/form",
-        templateUrl:"demo/form.html",
+        templateUrl:"view/demo/form.html",
         controller:"form"
     });
 });
