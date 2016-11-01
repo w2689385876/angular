@@ -1,16 +1,14 @@
 /**
  * 公用控制器
 */
-var app = angular.module("app", [ "ui.router", "ui.bootstrap" ]);
+var app = angular.module("app", [ "ui.router", "ui.bootstrap"]);
+
 
 //首页
-app.controller("ctrl", function($scope,$rootScope,$uibModal, $log) {
+app.controller("ctrl", function($scope,$rootScope,$uibModal, $log,$location) {
     $scope.menuShow = false;
     $scope.toggleMenu = function() {
         $scope.menuShow = !$scope.menuShow;
-    };
-    $scope.menuOpen = function(e) {
-        console.log(e);
     };
     
     //删除确认模态框
@@ -31,6 +29,14 @@ app.controller("ctrl", function($scope,$rootScope,$uibModal, $log) {
             }
         });
     }
+    //标记当前页面焦点
+    $scope.isActive = function (route) {
+        return $location.path().indexOf(route)>=0;
+    }
+    // 折叠菜单
+    $scope.openMenu=function(e){
+        angular.element(e.target).toggleClass('active');
+    }
 });
 
 
@@ -38,9 +44,6 @@ app.controller("ctrl", function($scope,$rootScope,$uibModal, $log) {
 
 //表单页面
 app.controller("form", function($scope,$rootScope,$timeout) {
-    $rootScope.subPageCur={
-        isForm:"active"
-    }
     var bitian=['name','select','sex'];
     $scope.user={}
     $scope.submit=function(){
@@ -57,11 +60,6 @@ app.controller("form", function($scope,$rootScope,$timeout) {
 
 //列表页面
 app.controller("demoList", function($scope, $http, $timeout, $rootScope) {
-    //设置当前页菜单焦点
-    $rootScope.subPageCur={
-        isTable:"active"
-    }
-
     //分页
     $scope.page={
         maxSize : 4, //最大可见分页

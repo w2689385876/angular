@@ -2,19 +2,59 @@
 	admin
 	<a href="#">退出系统</a>
 </p>
-<ul class="sidebar-menu">
+<!-- <ul class="sidebar-menu">
 	<li class="header">菜单</li>
 	<li class="treeview">
-		<a href="javascript:void(0)">
-			<span>模版文件</span>
-		</a>
+		<span><i class="glyphicon glyphicon-th-large"></i> 模版文件</span>
 		<ul class="treeview-menu">
-			<li>
-				<a href="#/demo">demo1</a>
+			<li ng-class="{active:isActive('/demo')}">
+				<a ui-sref="demo">demo</a>
 			</li>
 			<li>
-				<a href="#">demo2</a>
+				<a href="#baidu" target="_self">其他频道</a>
 			</li>
 		</ul>
 	</li>
-</ul>
+	<li class="treeview">
+		<span><i class="glyphicon glyphicon-th-large"></i> 模版文件</span>
+		<ul class="treeview-menu">
+			<li>
+				<a ui-sref="demo">demo</a>
+			</li>
+			<li>
+				<a href="#baidu" target="_self">其他频道</a>
+			</li>
+		</ul>
+	</li>
+</ul> -->
+
+
+<script type="text/ng-template" id="group-template.html">
+	<!-- <a href tabindex="0" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+		<span uib-accordion-header ng-class="{'text-muted': isDisabled}">{{heading}}</span>
+	</a> -->
+
+	<div ng-click="toggleOpen()" uib-accordion-transclude="heading">
+		<div uib-accordion-header ng-class="{'text-muted': isDisabled}">{{heading}}</div>
+	</div>
+	<div uib-collapse="!isOpen" ng-transclude class="treeview-menu"></div>
+</script>
+
+<uib-accordion close-others="oneAtATime">
+	<div uib-accordion-group class="sidebar-menu" is-open="status.open" template-url="group-template.html">
+		<uib-accordion-heading>
+			<span>
+				<i class="glyphicon glyphicon-th-large"></i> 模板文件 
+				<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+			</span>
+		</uib-accordion-heading>
+		<ul>
+		<li>
+			<a ui-sref="demo">demo</a>
+		</li>
+		<li>
+			<a href="#baidu" target="_self">其他频道</a>
+		</li>
+		</ul>
+	</div>
+</uib-accordion>

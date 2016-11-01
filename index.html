@@ -8,7 +8,9 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 	<title>路由</title>
 	<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/static/css/app.css"></head>
+	<link rel="stylesheet" href="/static/css/app.css">
+	<base href="/">
+</head>
 <body>
 	<div ng-include="'/template/nav.html'"></div>
 	<div class="content {{menuShow}}">
@@ -16,11 +18,6 @@
 			<div ng-include="'/template/menu.html'"></div>
 		</div>
 		<div class="AreaR">
-			<ol class="breadcrumb">
-			  <li><a href="#">Home</a></li>
-			  <li><a href="#">Library</a></li>
-			  <li class="active">Data</li>
-			</ol>
 			<div ui-view></div>
 		</div>
 	</div>

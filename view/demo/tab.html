@@ -1,8 +1,8 @@
 <ul class="nav nav-tabs">
-	<li class="{{$root.subPageCur.isTable}}">
+	<li ng-class="{active:isActive('/demo/table')}">
 		<a ui-sref="demo.table">表格</a>
 	</li>
-	<li class="{{$root.subPageCur.isForm}}">
+	<li ng-class="{active:isActive('/demo/form')}">
 		<a ui-sref="demo.form">表单</a>
 	</li>
 </ul>
