@@ -14,7 +14,7 @@ app.controller("ctrl", ['$scope', function($scope) {
 //表单页面
 app.controller("form", ['$scope', '$rootScope', '$timeout', function($scope, $rootScope, $timeout) {
     var bitian = ['name', 'select', 'sex'];
-    $scope.user = {}
+    $scope.user = {};
     $scope.submit = function() {
         bitian.forEach(function(e) {
             if (!$scope.user[e]) {
@@ -22,8 +22,8 @@ app.controller("form", ['$scope', '$rootScope', '$timeout', function($scope, $ro
                     msg: e + '不能为空'
                 });
             }
-        })
-    }
+        });
+    };
 }]);
 
 //列表页面
@@ -37,7 +37,7 @@ app.controller("demoList", ['$scope', '$http', '$uibModal', '$log', function($sc
         pageChange: function() {
             getData($scope.page.currentPage);
         }
-    }
+    };
 
     function getData(n) {
         $scope.loadingShow = true;
@@ -67,7 +67,7 @@ app.controller("demoList", ['$scope', '$http', '$uibModal', '$log', function($sc
         }, function(data) {
             $log.info(data);
         });
-    }
+    };
 }]);
 app.controller('delDate', ['$scope', '$uibModalInstance', 'item', function($scope, $uibModalInstance, item) {
     $scope.title = "系统提示";
@@ -122,7 +122,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
             controller: ['$stateParams', '$scope', function($stateParams, $scope) {
                 // alert($stateParams.id)
                 $scope.edit = true;
-                $scope.title = "tab1编辑"
+                $scope.title = "tab1编辑";
             }]
         })
         .state("demo_tab1_search", {
@@ -149,7 +149,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         url: "/tip/:msg",
         templateUrl: "/view/tip.html",
         controller: ['$stateParams', '$scope', function($stateParams, $scope) {
-            $scope.msg = $stateParams.msg
+            $scope.msg = $stateParams.msg;
         }]
     });
 }]);
@@ -172,8 +172,8 @@ app.run(['$rootScope', '$location', function($rootScope, $location) {
                     flag = true;
                     return false;
                 }
-            })
+            });
         }
         return flag;
-    }
-}])
+    };
+}]);
