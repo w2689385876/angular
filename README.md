@@ -1,4 +1,4 @@
-# angular项目
+# AngularJS
 基于AngularJS路由实现的一整套演示页面
 
 ## 用到的插件 ##
