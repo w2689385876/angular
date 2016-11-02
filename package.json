@@ -2,14 +2,26 @@
   "name": "angular",
   "version": "1.0.0",
   "description": "angular项目",
-  "main": "index.js",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "test"
+  },
   "dependencies": {
-    "angular": "^1.5.7",
+    "angular": "^1.5.8",
+    "angular-animate": "^1.5.8",
+    "angular-sanitize": "^1.5.8",
     "angular-ui-bootstrap": "^2.2.0",
     "angular-ui-router": "^0.3.1",
-    "angular-route": "^1.5.8",
+    "gulp": "^3.9.1",
+    "bootstrap-sass": "^3.3.7",
     "bootstrap": "^3.3.7",
-    "jquery": "^3.1.1"
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-jshint": "^2.0.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "jshint": "^2.9.2",
+    "gulp-uglify": "^1.5.4"
   },
   "devDependencies": {},
   "scripts": {
@@ -19,7 +31,7 @@
     "type": "git",
     "url": "git+https://github.com/waihaolaoxu/angular.git"
   },
-  "author": "",
+  "author": "前端老徐",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/waihaolaoxu/angular/issues"

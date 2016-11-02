@@ -1,0 +1,97 @@
+<ul class="nav nav-tabs" ng-if="edit">
+	<li class="active">
+		<a>{{title}}</a>
+	</li>
+</ul>
+<div class="box">
+	<div class="box-body">
+		<div class="container">
+			<form class="form-horizontal" name="form" novalidate ng-submit="submit()">
+				<script type="text/ng-template" id="alert.html">
+				    <div ng-transclude></div>
+				</script>
+
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label"> <i class="bitian">*</i>
+						标题
+					</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" placeholder="称呼" ng-model="user.name" name="uName" required>
+					    <div class="has-error" ng-show="form.$submitted || form.uName.$touched">
+					      <div class="help-block" ng-show="form.uName.$error.required">标题不能为空</div>
+					    </div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">
+						特殊表单
+					</label>
+					<div class="col-sm-10">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="提示" ng-model="user.lastName">
+							<div class="input-group-addon">㎡</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label  class="col-sm-2 control-label">
+						Password
+					</label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" placeholder="提示" ng-model="user.pwd"></div>
+				</div>
+				<div class="form-group">
+					<label  class="col-sm-2 control-label">
+						<i class="bitian">*</i>
+						下拉框
+					</label>
+					<div class="col-sm-10">
+						<select class="form-control" ng-model="user.select" name="uSelect" required>
+							<option value="">请选择</option>
+							<option value="2">222</option>
+							<option value="3">333</option>
+						</select>
+						<div class="has-error" ng-show="form.$submitted || form.uSelect.$touched">
+					      <div class="help-block" ng-show="form.uSelect.$error.required">下拉框不能为空</div>
+					    </div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">复选框</label>
+					<div class="col-sm-10">
+						<label class="checkbox-inline">
+							<input type="checkbox" ng-model="user.apple">苹果</label>
+						<label class="checkbox-inline">
+							<input type="checkbox" ng-model="user.xigua">西瓜</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">单选框</label>
+					<div class="col-sm-10">
+						<label class="radio-inline">
+							<input type="radio" value="1" ng-model="user.sex" name="uRadio">男</label>
+						<label class="radio-inline">
+							<input type="radio" value="2" ng-model="user.sex" name="uRadio">女</label>
+
+						<div class="has-error" ng-show="form.$submitted || form.uRadio.$touched">
+					      <div class="help-block" ng-show="!user.sex">不能为空</div>
+					    </div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">文本域</label>
+					<div class="col-sm-10">
+						<textarea name="" class="form-control" placeholder="提示" ng-model="user.txt"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-primary">提交</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<pre>{{user}}</pre>

@@ -1,0 +1,66 @@
+<div class="box">
+	<div class="box-header">
+		<div id="form" class="form-inline">
+			<div class="form-group">
+				<p class="form-control-static">搜索条件：</p>
+			</div>
+			<div class="form-group">
+				<input type="text" name="sid" value="" class="form-control" placeholder="专题ID"></div>
+			<div class="form-group">
+				<select name="" class="form-control">
+					<option value="1">11</option>
+				</select>
+
+			</div>
+			<button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i>
+				搜索
+			</button>
+		</div>
+	</div>
+	<div class="box-body">
+		<table class="table" ng-show="tableShow">
+			<thead>
+				<tr>
+					<th width="40" class="text-center">
+						<input type="checkbox" ng-model="selectAll"></th>
+					<th>标题</th>
+					<th>标题</th>
+					<th width="120" class="text-center">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="x in data">
+					<td class="text-center">
+						<input type="checkbox" ng-checked="selectAll"></td>
+					<td ng-bind="x.subject"></td>
+					<td ng-bind="x.designer_name"></td>
+					<td class="text-center">
+						<div class="btn-group">
+							<button type="button" class="btn btn-default btn-sm" ui-sref="demo_tab2_edit({id:x.id})"> <i class="glyphicon glyphicon-pencil"></i>
+							</button>
+							<button type="button" class="btn btn-default btn-sm" ng-click="del(x)">
+								<i class="glyphicon glyphicon-trash"></i>
+							</button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="box-footer">
+		<div class="row">
+			<div class="col-xs-4">
+			<button class="btn btn-default">按钮</button>
+			</div>
+			<div class="col-xs-8 form-inline text-right">
+				
+			</div>
+		</div>
+	</div>
+	
+	<!-- 加载loading -->
+	<div ng-show="loadingShow" ng-include="'/template/loading.html'"></div>
+</div>
+<div class="text-center">
+	<ul uib-pagination total-items="page.totalItems" items-per-page="page.itemsPerPage" ng-change="page.pageChange()" ng-model="page.currentPage" max-size="page.maxSize" class="pagination-sm" num-pages="page.numPages" boundary-link-numbers="true" previous-text="上一页" next-text="下一页"></ul>
+</div>

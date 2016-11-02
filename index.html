@@ -7,39 +7,83 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 	<title>路由</title>
-	<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/static/css/app.css">
+	<link rel="stylesheet" href="/static/css/app.min.css">
 	<base href="/">
 </head>
 <body>
-	<div ng-include="'/template/nav.html'"></div>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" ng-click="toggleMenu()">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div class="navbar-brand" href="#">东易日盛CRM管理系统</div>
+			</div>
+
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							admin
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li>
+								<a href="#">退出</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 	<div class="content {{menuShow}}">
 		<div class="AreaL">
-			<div ng-include="'/template/menu.html'"></div>
+			<p class="loginInfo text-right">
+				<span class="text-muted">admin</span>
+				<a href="#">退出系统</a>
+			</p>
+			<script type="text/ng-template" id="group-template.html">
+				<div ng-click="toggleOpen()" uib-accordion-transclude="heading">
+					<div uib-accordion-header ng-class="{'text-muted': isDisabled}">{{heading}}</div>
+				</div>
+				<div uib-collapse="!isOpen" ng-transclude class="treeview-menu"></div>
+			</script>
+			<uib-accordion close-others="true">
+				<div uib-accordion-group class="sidebar-menu" ng-class="{active:isActive(['/demo','/tip'])}" is-open="status.open" template-url="group-template.html">
+					<uib-accordion-heading>
+						<span>
+							<i class="glyphicon glyphicon-th-large"></i> 模板文件 
+							<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+						</span>
+					</uib-accordion-heading>
+					<ul class="truemenu">
+						<li ng-class="{active:isActive(['/demo'])}">
+							<a ui-sref="demo">demo</a>
+						</li>
+						<li ng-class="{active:isActive(['/tip'])}">
+							<a ui-sref="tip({msg:'您好这里是angular的提示页面'})">提示页</a>
+						</li>
+						<li>
+							<a href="view/login.html" target="_blank">登录页面</a>
+						</li>
+					</ul>
+				</div>
+			</uib-accordion>
 		</div>
 		<div class="AreaR">
 			<div ui-view></div>
 		</div>
 	</div>
-
-
-	<script type="text/ng-template" id="confirm.html">
-        <div class="modal-header">
-            <h3 class="modal-title">{{title}}</h3>
-        </div>
-        <div class="modal-body">
-            {{content}}
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-default" type="button" ng-click="cancel()">取消</button>
-            <button class="btn btn-primary" type="button" ng-click="ok()">确定</button>
-        </div>
-    </script>
-
-	<script src="/node_modules/angular/angular.min.js"></script>
+	<!-- <script src="/node_modules/angular/angular.min.js"></script>
+	<script src="/node_modules/angular-animate/angular-animate.min.js"></script>
 	<script src="/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
-	<script src="/static/js/controller.js"></script>
-	<script src="/static/js/router.js"></script>
+	<script src="/node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+	<script src="/static/js/router.js"></script> -->
+	<script src="/static/js/app.min.js"></script>
 </body>
 </html>

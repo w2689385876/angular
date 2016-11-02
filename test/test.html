@@ -8,48 +8,45 @@
    <script src="/node_modules/angular/angular.min.js"></script>
 	<script src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
     <script>
-        angular.module('ui.bootstrap.demo', ['ui.bootstrap']).controller('ModalDemoCtrl', function ($scope, $uibModal, $log) {
+        angular.module('ui.bootstrap.demo', ['ui.bootstrap']).controller('ModalDemoCtrl', function($scope, $uibModal, $log) {
 
             $scope.items = ['item1', 'item2', 'item3'];
 
-            $scope.open = function (size) {
+            $scope.open = function(size) {
                 var modalInstance = $uibModal.open({
                     templateUrl: 'myModalContent.html',
                     controller: 'ModalInstanceCtrl',
                     backdrop: "static",
                     size: size,
                     resolve: {
-                        items1: function () {
+                        items1: function() {
                             return $scope.items;
                         }
                     }
                 });
 
-                modalInstance.result.then(function (selectedItem) {
+                modalInstance.result.then(function(selectedItem) {
                     $scope.selected = selectedItem;
-                }, function () {
+                }, function() {
                     $log.info('Modal dismissed at: ' + new Date());
                 });
             };
 
-            $scope.toggleAnimation = function () {
-                $scope.animationsEnabled = !$scope.animationsEnabled;
-            };
 
         });
 
-//$uibModalInstance是模态窗口的实例  
-angular.module('ui.bootstrap.demo').controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items1) {
+        //$uibModalInstance是模态窗口的实例  
+        angular.module('ui.bootstrap.demo').controller('ModalInstanceCtrl', function($scope, $uibModalInstance, items1) {
             $scope.items = items1;
             $scope.selected = {
                 item: $scope.items[0]
             };
 
-            $scope.ok = function () {
+            $scope.ok = function() {
                 $uibModalInstance.close($scope.selected.item);
             };
 
-            $scope.cancel = function () {
+            $scope.cancel = function() {
                 $uibModalInstance.dismiss('cancel');
             };
         });
