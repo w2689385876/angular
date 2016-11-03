@@ -1,25 +1,35 @@
-<ul class="nav nav-tabs" ng-if="search">
-	<li class="active">
-		<a>{{title}}</a>
-	</li>
-</ul>
 <div class="box">
 	<div class="box-header">
 		<div id="form" class="form-inline">
-			<div class="form-group">
+			<!-- <div class="form-group">
 				<p class="form-control-static">搜索条件：</p>
-			</div>
+			</div> -->
+			<!-- <div class="form-group">
+				<input type="text" class="form-control" placeholder="专题ID" ng-model="id">
+			</div> -->
+			<!-- http://m.jiajuol.com/api/subject/subject_list.php?house_type=0&house_style=0&house_area=0 -->
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="专题ID" ng-model="id"></div>
-			<div class="form-group">
-				<select name="" class="form-control" ng-model="type">
-					<option value="">请选择</option>
-					<option value="1">11</option>
-					<option value="2">22</option>
+				<select class="form-control" ng-model="type">
+					<option value="0">户型</option>
+					<option value="12">小户型</option>
+					<option value="2">一居室</option>
 				</select>
-
 			</div>
-			<button type="button" class="btn btn-primary" ui-sref="demo_tab1_search({id:id,type:type})"> <i class="glyphicon glyphicon-search"></i>
+			<div class="form-group">
+				<select class="form-control" ng-model="style">
+					<option value="0">风格</option>
+					<option value="1">中式</option>
+					<option value="30">美式</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<select class="form-control" ng-model="area">
+					<option value="0">面积</option>
+					<option value="1">120平米以下</option>
+					<option value="2">121-180平米</option>
+				</select>
+			</div>
+			<button type="button" class="btn btn-primary" ui-sref="demo.tab1_search({type:type,style:style,area:area})"> <i class="glyphicon glyphicon-search"></i>
 				搜索
 			</button>
 		</div>

@@ -1,5 +1,5 @@
 /**
- * 公用控制器
+ * 公用控制器 
  */
 var app = angular.module("app", ["ui.router", "ui.bootstrap", 'ngAnimate', 'ngSanitize']);
 
@@ -27,7 +27,7 @@ app.controller("form", ['$scope', '$rootScope', '$timeout', function($scope, $ro
 }]);
 
 //列表页面
-app.controller("demoList", ['$scope', '$http', '$uibModal', '$log', function($scope, $http, $uibModal, $log) {
+app.controller("demoList", ['$scope', '$http', '$uibModal', '$log', '$stateParams', function($scope, $http, $uibModal, $log, $stateParams) {
     //分页
     $scope.page = {
         maxSize: 4, //最大可见分页
@@ -38,10 +38,19 @@ app.controller("demoList", ['$scope', '$http', '$uibModal', '$log', function($sc
             getData($scope.page.currentPage);
         }
     };
-
+    $scope.type=$stateParams.type?$stateParams.type:"0";
+    $scope.style=$stateParams.style?$stateParams.style:"0";
+    $scope.area=$stateParams.area?$stateParams.area:"0";
     function getData(n) {
         $scope.loadingShow = true;
-        $http.get("http://m.jiajuol.com/partner/weixin/subject/subject_list.php?page=" + n).success(function(response) {
+        $http.get("http://m.jiajuol.com/partner/weixin/subject/subject_list.php",{
+            params:{
+                page:n,
+                house_type:$scope.type,
+                house_style:$scope.style,
+                house_area:$scope.area
+            }
+        }).success(function(response) {
             $scope.data = response.data;
             $scope.tableShow = true;
             $scope.loadingShow = false;
@@ -82,6 +91,15 @@ app.controller('delDate', ['$scope', '$uibModalInstance', 'item', function($scop
 
 
 
+
+
+
+
+
+
+
+
+
 /**
  * 路由配置
  */
@@ -89,8 +107,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
     //使用HTML5格式
     // $locationProvider.html5Mode(true);
 
-    //如果没有满足的路由条件默认跳转主页
-    $urlRouterProvider.otherwise("/home");
+    //如果没有满足的路由条件默认跳转主页 
+    $urlRouterProvider.otherwise("/home"); 
 
     //重定向
     $urlRouterProvider.when("/demo", "/demo/tab1");
@@ -117,28 +135,37 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
             controller: "demoList"
         })
         .state("demo_tab1_edit", {
-            url: "/demo/tab1/:id",
+            url: "/demo/tab1_edit/:id",
             templateUrl: "/view/demo/tab1/edit.html",
-            controller: ['$stateParams', '$scope', function($stateParams, $scope) {
+            controller: ['$stateParams', '$scope','$state','$location','item', function($stateParams, $scope,$state,$location,item) {
+                if(item===1){
+                    // $state.go('tip',{msg:'没有权限'}); 
+                    $location.path('/tip/没有权限');
+                    return;
+                }
                 // alert($stateParams.id)
                 $scope.edit = true;
                 $scope.title = "tab1编辑";
-            }]
+            }],
+            resolve: {
+                item: function() {
+                    return 1;
+                }
+            }
         })
-        .state("demo_tab1_search", {
-            url: "/demo/tab1_search?id&type",
+        .state("demo.tab1_search", {
+            url: "/tab1/?style&type&area",
             templateUrl: "/view/demo/tab1/list.html",
-            controller: ['$stateParams', '$scope', function($stateParams, $scope, $http) {
-                // alert($stateParams.id+'\n'+$stateParams.type)
-                $scope.search = true;
-                $scope.title = "tab1查询结果";
-            }]
+            controller:'demoList'
+            // controller: ['$stateParams', '$scope', function($stateParams, $scope, $http) {
+            //     alert($stateParams.style+'\n'+$stateParams.area)
+            // }]
         })
         .state("demo_tab2_edit", {
-            url: "/demo/tab2/:id",
+            url: "/demo/tab2_edit/:id",
             templateUrl: "/view/demo/tab2/edit.html",
             controller: ['$stateParams', '$scope', function($stateParams, $scope) {
-                // alert($stateParams.id)
+                alert($stateParams.id)
                 $scope.edit = true;
                 $scope.title = "tab2编辑";
             }]
@@ -155,10 +182,13 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
 }]);
 
 // 初始化运行
-app.run(['$rootScope', '$location', function($rootScope, $location) {
-    //监听路由变化，暂时无用
+app.run(['$rootScope', '$location','$state','$http', function($rootScope, $location,$state,$http) {
+    //监听路由变化
     $rootScope.$on('$locationChangeSuccess', function(event, newUrl, oldUrl) {
-        // alert(newUrl)
+        // console.log(newUrl);
+        // if(newUrl.indexOf('demo/tab2')>0){
+        //     $state.go('tip',{msg:'没有权限'}); 
+        // }
     });
 
     //标记当前页面焦点

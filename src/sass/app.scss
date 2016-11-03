@@ -71,7 +71,7 @@ body{background: #F1F4F6;}
 .sidebar-menu {margin: 0 5px;background:none;color:#fff;-moz-user-select:none;-webkit-user-select:none;
 	&.active{background: #2b2b38;}
 	span{display:block;cursor: pointer;position: relative;padding-left:15px;line-height:35px;}
-	.glyphicon-chevron-down,.sidebar-menu .glyphicon-chevron-right{margin:8px 10px 0 0;}
+	.glyphicon-chevron-down,.glyphicon-chevron-right{margin:8px 10px 0 0;}
 	.truemenu{padding: 0;line-height: 30px;
 		li{ padding-left: 33px;position: relative;
 			&:before{content: '';width:4px;height:4px;background: #fff;position: absolute;left:19px;top:13px;}

@@ -11,7 +11,7 @@ var dev = process.argv.splice(3)[0]==='-dev';
 
 // 文件路径
 var style=['src/sass/app.scss'];
-var script=['node_modules/angular/angular.js','node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js','node_modules/angular-animate/angular-animate.js','node_modules/angular-sanitize/angular-sanitize.js','node_modules/angular-ui-router/release/angular-ui-router.js','src/js/router.js'];
+var script=['node_modules/angular/angular.js','node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js','node_modules/angular-animate/angular-animate.js','node_modules/angular-sanitize/angular-sanitize.js','node_modules/angular-ui-router/release/angular-ui-router.js','src/js/app.js'];
 
 // sass编译
 gulp.task('sass', function() {
