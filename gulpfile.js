@@ -5,6 +5,7 @@ var concat = require('gulp-concat'); //合并
 var sass = require('gulp-sass'); // sass 编译
 var sourcemaps = require('gulp-sourcemaps');//sass map
 var jshint = require('gulp-jshint'); //js代码校验
+var livereload = require('gulp-livereload'); // 自动刷新
 
 //判断开发环境，默认正式环境
 var dev = process.argv.splice(3)[0]==='-dev';
@@ -22,7 +23,8 @@ gulp.task('sass', function() {
 		}).on('error', sass.logError))
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest('static/css/'));
+		.pipe(gulp.dest('static/css/'))
+		.pipe(livereload());
 });
 
 //js合并 混淆
@@ -31,7 +33,7 @@ gulp.task('jsmin',function(){
 		if(dev){
 			gulp.src(script).pipe(concat(name)).pipe(rename({ suffix: '.min' })).pipe(gulp.dest(to));
 		}else{
-			gulp.src(script).pipe(concat(name)).pipe(rename({ suffix: '.min' })).pipe(uglify()).pipe(gulp.dest(to));
+			gulp.src(script).pipe(concat(name)).pipe(rename({ suffix: '.min' })).pipe(uglify()).pipe(gulp.dest(to)).pipe(livereload());
 		}
 });
 
@@ -44,6 +46,7 @@ gulp.task('jshint', function() {
 
 //自动监听
 gulp.task('watch', function() {
+	livereload.listen();
 	gulp.watch(style, ['sass']);
 	gulp.watch(script, ['jshint','jsmin']);
 });

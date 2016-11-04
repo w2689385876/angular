@@ -9,19 +9,20 @@ body{background: #F1F4F6;}
 
 
 /**
- * nav重置
+ * 重置bootstrap样式
 */
 .navbar{border-radius: 0;border:0;
 	&:after{content: '';height:1px;background: #ddd;position:absolute;bottom:0;width:100%;margin-left: 230px;}
 }
 .navbar-default .navbar-brand,.navbar-default .navbar-brand:hover{width:230px;background: #353644;color:#fff;}
-/*字体颜色*/
+// 字体颜色
 .text-danger{color:#f00;}
-/*面包屑*/
+// 面包屑
 .breadcrumb{background: #fff;}
-/*顶部下拉菜单*/
+// 顶部下拉菜单
 .dropdown:hover>.dropdown-menu{display: block;}
-
+// alert
+.alert {padding:8px 30px 8px 8px;margin-bottom:8px;}
 
 
 
@@ -67,7 +68,7 @@ body{background: #F1F4F6;}
  * 左侧菜单
 */
 .AreaL .panel-group{margin: 5px 0 0;}
-.loginInfo{display: none;padding: 0 10px 10px;border-bottom: solid 1px #444;}
+.loginInfo{display: none;padding: 0 10px;}
 .sidebar-menu {margin: 0 5px;background:none;color:#fff;-moz-user-select:none;-webkit-user-select:none;
 	&.active{background: #2b2b38;}
 	span{display:block;cursor: pointer;position: relative;padding-left:15px;line-height:35px;}

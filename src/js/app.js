@@ -10,7 +10,7 @@ app.controller("ctrl", ['$scope', function($scope) {
         $scope.menuShow = !$scope.menuShow;
     };
 }]);
-
+ 
 //表单页面
 app.controller("form", ['$scope', '$rootScope', '$timeout', function($scope, $rootScope, $timeout) {
     var bitian = ['name', 'select', 'sex'];
@@ -205,5 +205,18 @@ app.run(['$rootScope', '$location','$state','$http', function($rootScope, $locat
             });
         }
         return flag;
+    };
+    //提示框
+    $rootScope.alerts = [{
+        type: 'success',
+        msg: '欢迎登录CRM管理系统'
+    }];
+    $rootScope.addAlert = function() {
+        $rootScope.alerts.push({
+            msg: 'Another alert!'
+        });
+    };
+    $rootScope.closeAlert = function(index) {
+        $rootScope.alerts.splice(index, 1);
     };
 }]);

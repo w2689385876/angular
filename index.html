@@ -78,12 +78,21 @@
 			<div ui-view></div>
 		</div>
 	</div>
+
+
+	<div style="width:30%;position:fixed;top:0;left:35%;z-index: 1030">
+		<div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)" dismiss-on-timeout="2200">{{alert.msg}}</div>
+		<button type="button" class='btn btn-default' ng-click="addAlert()">Add Alert</button>
+	</div>
+
+
+
 	<!-- <script src="/node_modules/angular/angular.min.js"></script>
 	<script src="/node_modules/angular-animate/angular-animate.min.js"></script>
 	<script src="/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
 	<script src="/node_modules/angular-sanitize/angular-sanitize.min.js"></script>
-	<script src="/static/js/router.js"></script> -->
+	<script src="/static/js/app.js"></script> -->
 	<script src="/static/js/app.min.js"></script>
 </body>
 </html>
